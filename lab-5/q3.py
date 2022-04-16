@@ -54,21 +54,21 @@ def calculate_accuracy(model, model_name):
     print("*" * 88)
 
 
-pipeline = Pipeline(stages=[indexer, assembler, scaler, LRC])
-model = pipeline.fit(train_dataset)
-calculate_accuracy(model, "Logistic regression with scaler")
+# pipeline = Pipeline(stages=[indexer, assembler, scaler, LRC])
+# model = pipeline.fit(train_dataset)
+# calculate_accuracy(model, "Logistic regression with scaler")
 
 
-pipeline = Pipeline(stages=[indexer, assembler, DTC])
-model = pipeline.fit(train_dataset)
-calculate_accuracy(model, "Decision Tree Classifier")
+# pipeline = Pipeline(stages=[indexer, assembler, DTC])
+# model = pipeline.fit(train_dataset)
+# calculate_accuracy(model, "Decision Tree Classifier")
 
 
 pipeline = Pipeline(stages=[indexer, assembler, RFC])
 model = pipeline.fit(train_dataset)
 calculate_accuracy(model, "RandomForest Model")
+model.save("gs://big-data-cs4830/lab-5/lab5_model")
 
-
-pipeline = Pipeline(stages=[indexer, assembler, scaler, OVRC])
-model = pipeline.fit(train_dataset)
-calculate_accuracy(model, "One-versus-Rest Model with scaler")
+# pipeline = Pipeline(stages=[indexer, assembler, scaler, OVRC])
+# model = pipeline.fit(train_dataset)
+# calculate_accuracy(model, "One-versus-Rest Model with scaler")
